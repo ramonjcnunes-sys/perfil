@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ramon Nunes | Analista de Business Intelligence</title>
+  <meta name="description" content="Analista de BI especialista em Power BI, DAX, SQL, ETL e dashboards estratégicos. Transformo dados em decisões para construtoras, incorporadoras e empresas de serviços."/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --navy:#0F2440;
+      --blue:#1D4ED8;
+      --blue2:#2563EB;
+      --blue3:#EFF6FF;
+      --accent:#F59E0B;
+      --green:#16A34A;
+      --red:#DC2626;
+      --white:#FFFFFF;
+      --light:#F8FAFC;
+      --gray:#64748B;
+      --gray2:#E2E8F0;
+      --dark:#0F172A;
+      --border:#E2E8F0;
+      --card:#FFFFFF;
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:'Segoe UI',Arial,sans-serif;background:var(--white);color:var(--dark);}
+
+    /* NAV */
+    nav{
+      position:fixed;top:0;width:100%;z-index:100;
+      background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 6%;height:68px;
+      border-bottom:1px solid var(--border);
+      box-shadow:0 1px 12px rgba(0,0,0,0.06);
+    }
+    .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+    .nav-icon{width:40px;height:40px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:var(--accent);}
+    .nav-name{font-size:16px;font-weight:700;color:var(--navy);}
+    .nav-name span{color:var(--blue2);}
+    .nav-links{display:flex;gap:28px;list-style:none;}
+    .nav-links a{color:var(--gray);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;}
+    .nav-links a:hover{color:var(--navy);}
+    .nav-cta{background:var(--blue2);color:var(--white);padding:10px 22px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:background .2s,transform .2s;}
+    .nav-cta:hover{background:var(--blue);transform:translateY(-1px);}
+
+    /* HERO */
+    #hero{
+      min-height:100vh;
+      background:linear-gradient(135deg,var(--navy) 0%,#1a3a6b 55%,#0d3260 100%);
+      display:flex;align-items:center;
+      padding:100px 6% 60px;
+      position:relative;overflow:hidden;
+    }
+    #hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(245,158,11,0.1),transparent 65%);pointer-events:none;}
+    #hero::after{content:'';position:absolute;bottom:-150px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(37,99,235,0.15),transparent 65%);pointer-events:none;}
+    .hero-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%;max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);color:var(--accent);padding:6px 16px;border-radius:100px;font-size:13px;font-weight:600;margin-bottom:24px;}
+    .hero-badge::before{content:'●';font-size:8px;}
+    .hero-title{font-size:clamp(32px,4vw,54px);font-weight:900;color:var(--white);line-height:1.15;margin-bottom:20px;}
+    .hero-title span{color:var(--accent);}
+    .hero-sub{font-size:17px;color:rgba(255,255,255,0.72);line-height:1.75;margin-bottom:36px;}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
+    .btn-primary{background:var(--accent);color:var(--navy);padding:15px 30px;border-radius:10px;font-weight:800;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s;}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,158,11,0.35);}
+    .btn-outline{background:transparent;color:var(--white);padding:15px 30px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,0.3);transition:all .2s;}
+    .btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,0.08);}
+    .hero-stats{display:flex;gap:36px;flex-wrap:wrap;padding-top:36px;border-top:1px solid rgba(255,255,255,0.12);}
+    .hstat{text-align:center;}
+    .hstat-num{font-size:32px;font-weight:900;color:var(--accent);}
+    .hstat-label{font-size:12px;color:rgba(255,255,255,0.55);margin-top:3px;}
+
+    /* HERO CARD */
+    .hero-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:28px;backdrop-filter:blur(10px);}
+    .hcard-header{display:flex;align-items:center;gap:10px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.08);}
+    .hcard-dot{width:10px;height:10px;border-radius:50%;}
+    .hcard-title{font-size:12px;color:rgba(255,255,255,0.5);}
+    .hkpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+    .hkpi{background:rgba(255,255,255,0.06);border-radius:10px;padding:14px;border:1px solid rgba(255,255,255,0.07);}
+    .hkpi-label{font-size:10px;color:rgba(255,255,255,0.45);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;}
+    .hkpi-val{font-size:20px;font-weight:800;color:var(--white);}
+    .hkpi-trend{font-size:11px;color:#34D399;margin-top:3px;}
+    .hkpi-trend.red{color:#F87171;}
+    .hbar-row{margin-bottom:10px;}
+    .hbar-top{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:4px;}
+    .hbar-track{height:6px;background:rgba(255,255,255,0.07);border-radius:3px;}
+    .hbar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--blue2),var(--accent));}
+    .hcard-tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);}
+    .htool{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;}
+
+    /* SECTIONS */
+    section{padding:80px 6%;}
+    .sec-center{text-align:center;}
+    .sec-label{display:inline-block;background:var(--blue3);color:var(--blue2);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:6px;margin-bottom:14px;}
+    .sec-title{font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--navy);line-height:1.25;margin-bottom:14px;}
+    .sec-title span{color:var(--blue2);}
+    .sec-sub{font-size:17px;color:var(--gray);line-height:1.7;max-width:600px;}
+    .sec-sub.center{margin:0 auto;}
+
+    /* SOBRE */
+    #sobre{background:var(--light);}
+    .sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:48px;}
+    .sobre-visual{background:var(--navy);border-radius:20px;padding:40px;color:var(--white);position:relative;overflow:hidden;}
+    .sobre-visual::before{content:'';position:absolute;top:-50px;right:-50px;width:180px;height:180px;background:radial-gradient(circle,rgba(245,158,11,0.2),transparent);}
+    .sobre-avatar{width:72px;height:72px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:20px;}
+    .sobre-visual h3{font-size:22px;font-weight:800;margin-bottom:8px;}
+    .sobre-visual .cargo{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:20px;}
+    .sobre-chips{display:flex;flex-wrap:wrap;gap:8px;}
+    .sobre-chip{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.8);font-size:12px;font-weight:600;padding:5px 12px;border-radius:6px;}
+    .sobre-text p{font-size:16px;color:var(--gray);line-height:1.8;margin-bottom:18px;}
+    .sobre-text p:last-child{margin-bottom:0;}
+    .sobre-text strong{color:var(--navy);}
+
+    /* ESPECIALIDADES */
+    #especialidades{background:var(--white);}
+    .esp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px;}
+    .esp-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:28px;transition:box-shadow .25s,transform .25s,border-color .25s;}
+    .esp-card:hover{box-shadow:0 12px 40px rgba(29,78,216,0.1);transform:translateY(-4px);border-color:var(--blue2);}
+    .esp-icon{font-size:32px;margin-bottom:18px;}
+    .esp-title{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:10px;}
+    .esp-desc{font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:18px;}
+    .esp-tags{display:flex;flex-wrap:wrap;gap:6px;}
+    .esp-tag{background:var(--blue3);color:var(--blue2);font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;}
+
+    /* FERRAMENTAS */
+    #ferramentas{background:var(--navy);padding:80px 6%;}
+    #ferramentas .sec-label{background:rgba(245,158,11,0.15);color:var(--accent);}
+    #ferramentas .sec-title{color:var(--white);}
+    #ferramentas .sec-sub{color:rgba(255,255,255,0.6);}
+    .tools-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px;}
+    .tools-cat{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px;}
+    .tools-cat-title{font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+    .tools-list{display:flex;flex-direction:column;gap:12px;}
+    .tool-item{display:flex;align-items:center;gap:14px;}
+    .tool-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+    .tool-name{font-size:14px;font-weight:700;color:var(--white);}
+    .tool-desc{font-size:12px;color:rgba(255,255,255,0.45);}
+
+    /* SETORES */
+    #setores{background:var(--light);}
+    .setores-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:48px;}
+    .setor-card{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:28px;transition:box-shadow .2s,border-color .2s;}
+    .setor-card:hover{box-shadow:0 8px 28px rgba(0,0,0,0.08);border-color:var(--blue2);}
+    .setor-icon{font-size:36px;margin-bottom:16px;}
+    .setor-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;}
+    .setor-desc{font-size:14px;color:var(--gray);line-height:1.6;margin-bottom:16px;}
+    .setor-tags{display:flex;flex-wrap:wrap;gap:6px;}
+    .stag{background:var(--blue3);color:var(--blue2);font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;}
+
+    /* PROCESSO */
+    #processo{background:var(--white);}
+    .proc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:56px;position:relative;}
+    .proc-step{padding:32px 24px;text-align:center;border-right:1px solid var(--border);position:relative;}
+    .proc-step:last-child{border-right:none;}
+    .proc-num{width:52px;height:52px;border-radius:50%;background:var(--navy);color:var(--white);font-size:20px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
+    .proc-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;}
+    .proc-desc{font-size:14px;color:var(--gray);line-height:1.6;}
+
+    /* PORTFOLIO */
+    #portfolio{background:var(--light);}
+    .port-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px;margin-top:48px;}
+    .port-card{background:var(--white);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;transition:box-shadow .25s,transform .25s;}
+    .port-card:hover{box-shadow:0 12px 40px rgba(0,0,0,0.1);transform:translateY(-4px);}
+    .port-badge{display:inline-block;font-size:11px;font-weight:700;padding:4px 12px;border-radius:6px;margin-bottom:12px;}
+    .port-badge.seg{background:#FEF3C7;color:#92400E;}
+    .port-badge.const{background:#DBEAFE;color:#1E40AF;}
+    .port-img{height:180px;overflow:hidden;background:linear-gradient(135deg,var(--navy),#1a3a6b);display:flex;align-items:center;justify-content:center;font-size:48px;}
+    .port-body{padding:24px;}
+    .port-title{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:8px;}
+    .port-desc{font-size:14px;color:var(--gray);line-height:1.6;margin-bottom:18px;}
+    .port-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
+    .port-metric{background:var(--light);border-radius:8px;padding:10px;text-align:center;}
+    .port-metric-val{font-size:18px;font-weight:800;color:var(--blue2);}
+    .port-metric-label{font-size:11px;color:var(--gray);margin-top:2px;}
+    .port-link{display:inline-flex;align-items:center;gap:6px;color:var(--blue2);font-size:13px;font-weight:700;text-decoration:none;}
+    .port-link:hover{text-decoration:underline;}
+
+    /* DIFERENCIAIS */
+    #diferenciais{background:var(--white);}
+    .diff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:48px;}
+    .diff-card{background:var(--light);border-radius:14px;padding:28px;border-left:4px solid var(--blue2);}
+    .diff-icon{font-size:28px;margin-bottom:14px;}
+    .diff-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+    .diff-desc{font-size:14px;color:var(--gray);line-height:1.6;}
+
+    /* CTA */
+    #contato{background:linear-gradient(135deg,var(--navy),#1e3a8a);text-align:center;padding:100px 6%;position:relative;overflow:hidden;}
+    #contato::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(245,158,11,0.08),transparent 60%);pointer-events:none;}
+    .cta-label{display:inline-block;background:rgba(245,158,11,0.15);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:6px;margin-bottom:20px;}
+    .cta-title{font-size:clamp(28px,3.5vw,46px);font-weight:900;color:var(--white);margin-bottom:20px;position:relative;z-index:1;}
+    .cta-title span{color:var(--accent);}
+    .cta-sub{font-size:17px;color:rgba(255,255,255,0.65);margin:0 auto 44px;max-width:560px;line-height:1.7;position:relative;z-index:1;}
+    .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+    .btn-wa{background:#25D366;color:var(--white);padding:17px 36px;border-radius:12px;font-weight:800;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:transform .2s,box-shadow .2s;}
+    .btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.3);}
+    .btn-email{background:rgba(255,255,255,0.1);color:var(--white);padding:17px 36px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(255,255,255,0.25);transition:background .2s;}
+    .btn-email:hover{background:rgba(255,255,255,0.18);}
+    .btn-ln{background:#0A66C2;color:var(--white);padding:17px 36px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:opacity .2s;}
+    .btn-ln:hover{opacity:.85;}
+    .cta-note{margin-top:28px;font-size:13px;color:rgba(255,255,255,0.4);position:relative;z-index:1;}
+
+    /* FOOTER */
+    footer{background:#060F1E;color:rgba(255,255,255,0.45);padding:28px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;border-top:1px solid rgba(255,255,255,0.06);}
+    footer a{color:rgba(255,255,255,0.45);text-decoration:none;}
+    footer a:hover{color:var(--white);}
+
+    /* ANIMATIONS */
+    .fade-up{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+    .fade-up.visible{opacity:1;transform:translateY(0);}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .hero-wrap{grid-template-columns:1fr;}
+      .hero-card{display:none;}
+      .sobre-grid{grid-template-columns:1fr;}
+      .proc-grid{grid-template-columns:1fr;}
+      .proc-step{border-right:none;border-bottom:1px solid var(--border);}
+      .proc-step:last-child{border-bottom:none;}
+      .nav-links{display:none;}
+    }
+    @media(max-width:600px){
+      section{padding:60px 5%;}
+      .hero-btns{flex-direction:column;}
+      .cta-btns{flex-direction:column;align-items:center;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-brand">
+    <div class="nav-icon">BI</div>
+    <span class="nav-name">Ramon <span>Nunes</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#especialidades">Especialidades</a></li>
+    <li><a href="#ferramentas">Ferramentas</a></li>
+    <li><a href="#setores">Setores</a></li>
+    <li><a href="#portfolio">Portfólio</a></li>
+  </ul>
+  <a href="https://wa.me/5511942488630?text=Olá%20Ramon,%20quero%20conhecer%20seus%20serviços%20de%20BI!" class="nav-cta" target="_blank">Falar comigo</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-wrap">
+    <div class="hero-content fade-up">
+      <div class="hero-badge">Analista de Business Intelligence · Power BI · ETL · SQL</div>
+      <h1 class="hero-title">
+        Dados que existem<br/>mas não chegam até você.<br/>
+        <span>Eu resolvo isso.</span>
+      </h1>
+      <p class="hero-sub">
+        Especialista em Business Intelligence com experiência em análise de dados, desenvolvimento de dashboards estratégicos, ETL e integração de sistemas. Transformo dados brutos em indicadores que impulsionam decisões melhores.
+      </p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5511942488630?text=Quero%20um%20diagnóstico%20gratuito%20de%20BI!" class="btn-primary" target="_blank">
+          📊 Diagnóstico gratuito
+        </a>
+        <a href="#portfolio" class="btn-outline">Ver portfólio →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="hstat-num">12+</div><div class="hstat-label">Anos em gestão</div></div>
+        <div class="hstat"><div class="hstat-num">4+</div><div class="hstat-label">Anos em BI</div></div>
+        <div class="hstat"><div class="hstat-num">100%</div><div class="hstat-label">Remoto · Brasil</div></div>
+        <div class="hstat"><div class="hstat-num">2–4</div><div class="hstat-label">Semanas de entrega</div></div>
+      </div>
+    </div>
+    <div class="hero-card fade-up">
+      <div class="hcard-header">
+        <div class="hcard-dot" style="background:#F87171"></div>
+        <div class="hcard-dot" style="background:#FBBF24"></div>
+        <div class="hcard-dot" style="background:#34D399"></div>
+        <span class="hcard-title" style="margin-left:8px">Dashboard Gerencial · Power BI</span>
+      </div>
+      <div class="hkpi-grid">
+        <div class="hkpi"><div class="hkpi-label">Faturamento</div><div class="hkpi-val">R$22,7M</div><div class="hkpi-trend">↑ +8,93% Jun</div></div>
+        <div class="hkpi"><div class="hkpi-label">Margem</div><div class="hkpi-val">52,24%</div><div class="hkpi-trend">↑ Meta atingida</div></div>
+        <div class="hkpi"><div class="hkpi-label">Contratos</div><div class="hkpi-val">70</div><div class="hkpi-trend">● Semestre</div></div>
+        <div class="hkpi"><div class="hkpi-label">Conversão</div><div class="hkpi-val">39,70%</div><div class="hkpi-trend red">↓ -10% meta</div></div>
+      </div>
+      <div class="hbar-row"><div class="hbar-top"><span>Financeiro</span><span>82%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:82%"></div></div></div>
+      <div class="hbar-row"><div class="hbar-top"><span>Operacional</span><span>74%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:74%"></div></div></div>
+      <div class="hbar-row"><div class="hbar-top"><span>Comercial</span><span>91%</span></div><div class="hbar-track"><div class="hbar-fill" style="width:91%"></div></div></div>
+      <div class="hcard-tools">
+        <span class="htool">Power BI</span><span class="htool">DAX</span><span class="htool">SQL</span><span class="htool">ETL</span><span class="htool">Python</span><span class="htool">Power Automate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="fade-up">
+    <span class="sec-label">Quem sou</span>
+    <h2 class="sec-title">Analista de BI com raízes<br/><span>na gestão operacional</span></h2>
+  </div>
+  <div class="sobre-grid">
+    <div class="sobre-visual fade-up">
+      <div class="sobre-avatar">👤</div>
+      <h3>Ramon Nunes</h3>
+      <p class="cargo">Analista de Business Intelligence · Consultor Power BI</p>
+      <div class="sobre-chips">
+        <span class="sobre-chip">Power BI</span>
+        <span class="sobre-chip">DAX</span>
+        <span class="sobre-chip">SQL Server</span>
+        <span class="sobre-chip">ETL</span>
+        <span class="sobre-chip">Pentaho</span>
+        <span class="sobre-chip">Python</span>
+        <span class="sobre-chip">Power Automate</span>
+        <span class="sobre-chip">N8N</span>
+        <span class="sobre-chip">Talend</span>
+        <span class="sobre-chip">Oracle</span>
+        <span class="sobre-chip">MySQL</span>
+        <span class="sobre-chip">Postgres</span>
+        <span class="sobre-chip">Mega ERP</span>
+        <span class="sobre-chip">Anapro</span>
+      </div>
+    </div>
+    <div class="sobre-text fade-up">
+      <p>Tenho experiência em <strong>análise de dados e desenvolvimento de Dashboards</strong>, com foco na apresentação de indicadores que impulsionam uma gestão mais eficaz nas organizações.</p>
+      <p>Desenvolvo <strong>soluções de BI para diversas áreas</strong>, realizando conexões com bancos de dados, consultas e extrações de informações via SQL. Trabalho com ambientes SQL Server, MySQL, Oracle e PostgreSQL.</p>
+      <p>Elaboro <strong>processos de ETL para criação de Data Warehouses</strong> utilizando Pentaho, Integration Service e Power Query, automatizando os processos e assegurando a integridade e consistência dos dados.</p>
+      <p>Com mais de <strong>12 anos em gestão operacional</strong> — como supervisor, coordenador e gerente — sei o que um gestor precisa enxergar para tomar decisão. Fui esse gestor. Hoje construo o BI que eu mesmo precisaria.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section id="especialidades">
+  <div class="fade-up sec-center">
+    <span class="sec-label">O que faço</span>
+    <h2 class="sec-title">Especialidades que <span>geram resultado</span></h2>
+    <p class="sec-sub center">Da extração dos dados até o dashboard na tela da diretoria — entrego a solução completa.</p>
+  </div>
+  <div class="esp-grid">
+    <div class="esp-card fade-up">
+      <div class="esp-icon">📊</div>
+      <div class="esp-title">Dashboards Power BI</div>
+      <p class="esp-desc">Desenvolvimento de painéis gerenciais, operacionais e comerciais no Power BI — focados em decisão, não em estética. Métricas que o gestor realmente usa.</p>
+      <div class="esp-tags"><span class="esp-tag">Power BI</span><span class="esp-tag">DAX</span><span class="esp-tag">Relatórios</span><span class="esp-tag">KPIs</span></div>
+    </div>
+    <div class="esp-card fade-up">
+      <div class="esp-icon">🔄</div>
+      <div class="esp-title">ETL e Data Warehouse</div>
+      <p class="esp-desc">Criação de pipelines de dados com Pentaho, Integration Service, Talend e Power Query. Automação dos processos garantindo integridade e consistência dos dados.</p>
+      <div class="esp-tags"><span class="esp-tag">Pentaho</span><span class="esp-tag">Talend</span><span class="esp-tag">SSIS</span><span class="esp-tag">Power Query</span></div>
+    </div>
+    <div class="esp-card fade-up">
+      <div class="esp-icon">🗄️</div>
+      <div class="esp-title">Banco de Dados e SQL</div>
+      <p class="esp-desc">Conexões, consultas e extrações em SQL Server, MySQL, Oracle e PostgreSQL. Modelagem de dados e queries otimizadas para alimentar os dashboards.</p>
+      <div class="esp-tags"><span class="esp-tag">SQL Server</span><span class="esp-tag">MySQL</span><span class="esp-tag">Oracle</span><span class="esp-tag">Postgres</span></div>
+    </div>
+    <div class="esp-card fade-up">
+      <div class="esp-icon">⚡</div>
+      <div class="esp-title">Automação de Dados</div>
+      <p class="esp-desc">Atualização automática de dashboards com Power Automate e N8N. Dados sempre atualizados sem intervenção manual — a diretoria acessa e o dado está lá.</p>
+      <div class="esp-tags"><span class="esp-tag">Power Automate</span><span class="esp-tag">N8N</span><span class="esp-tag">Automação</span></div>
+    </div>
+    <div class="esp-card fade-up">
+      <div class="esp-icon">🐍</div>
+      <div class="esp-title">Python para Dados</div>
+      <p class="esp-desc">Uso de Python para tratamento de dados, automações avançadas, web scraping e integrações com APIs. Complementando o ecossistema de BI com poder de programação.</p>
+      <div class="esp-tags"><span class="esp-tag">Python</span><span class="esp-tag">Pandas</span><span class="esp-tag">APIs</span><span class="esp-tag">Scraping</span></div>
+    </div>
+    <div class="esp-card fade-up">
+      <div class="esp-icon">🔌</div>
+      <div class="esp-title">Integração de Sistemas</div>
+      <p class="esp-desc">Conexão direta com ERPs e sistemas especializados como Mega ERP e Anapro (construtoras) — sem precisar exportar planilhas, direto na fonte dos dados.</p>
+      <div class="esp-tags"><span class="esp-tag">Mega ERP</span><span class="esp-tag">Anapro</span><span class="esp-tag">ERP</span><span class="esp-tag">APIs</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FERRAMENTAS -->
+<section id="ferramentas">
+  <div class="fade-up sec-center">
+    <span class="sec-label">Stack técnica</span>
+    <h2 class="sec-title" style="color:var(--white)">Ferramentas que <span>domino</span></h2>
+    <p class="sec-sub center" style="color:rgba(255,255,255,0.6)">Ecossistema completo de BI — da fonte de dados até o painel na tela do gestor.</p>
+  </div>
+  <div class="tools-cats">
+    <div class="tools-cat fade-up">
+      <div class="tools-cat-title">📊 Visualização & BI</div>
+      <div class="tools-list">
+        <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">Microsoft Power BI</div><div class="tool-desc">Dashboards, relatórios e análises</div></div></div>
+        <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">DAX</div><div class="tool-desc">Métricas e KPIs avançados</div></div></div>
+        <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">Power Query</div><div class="tool-desc">Transformação e limpeza de dados</div></div></div>
+      </div>
+    </div>
+    <div class="tools-cat fade-up">
+      <div class="tools-cat-title">🔄 ETL & Integração</div>
+      <div class="tools-list">
+        <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">Pentaho</div><div class="tool-desc">Pipelines ETL e Data Warehouse</div></div></div>
+        <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">Talend</div><div class="tool-desc">Integração e transformação de dados</div></div></div>
+        <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">Integration Services (SSIS)</div><div class="tool-desc">ETL SQL Server</div></div></div>
+      </div>
+    </div>
+    <div class="tools-cat fade-up">
+      <div class="tools-cat-title">🗄️ Bancos de Dados</div>
+      <div class="tools-list">
+        <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">SQL Server</div><div class="tool-desc">Modelagem e queries avançadas</div></div></div>
+        <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">MySQL & PostgreSQL</div><div class="tool-desc">Bancos relacionais open source</div></div></div>
+        <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">Oracle</div><div class="tool-desc">Ambientes corporativos</div></div></div>
+      </div>
+    </div>
+    <div class="tools-cat fade-up">
+      <div class="tools-cat-title">⚡ Automação & Dev</div>
+      <div class="tools-list">
+        <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">Power Automate</div><div class="tool-desc">Fluxos e atualização automática</div></div></div>
+        <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">N8N</div><div class="tool-desc">Automação low-code avançada</div></div></div>
+        <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">Python</div><div class="tool-desc">ETL, scraping e análise avançada</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SETORES -->
+<section id="setores">
+  <div class="fade-up sec-center">
+    <span class="sec-label">Para quem atendo</span>
+    <h2 class="sec-title">Setores onde <span>tenho experiência real</span></h2>
+    <p class="sec-sub center">Conheço o operacional de cada setor. Não é só técnica — é entender o negócio para construir o BI certo.</p>
+  </div>
+  <div class="setores-grid">
+    <div class="setor-card fade-up">
+      <div class="setor-icon">🏗️</div>
+      <div class="setor-title">Construtoras e Incorporadoras</div>
+      <p class="setor-desc">Especialidade em Mega ERP e Anapro. Dashboards de contratos, inadimplência, receita por empreendimento e gestão financeira consolidada.</p>
+      <div class="setor-tags"><span class="stag">Mega ERP</span><span class="stag">Anapro</span><span class="stag">Contratos</span><span class="stag">Inadimplência</span></div>
+    </div>
+    <div class="setor-card fade-up">
+      <div class="setor-icon">🔒</div>
+      <div class="setor-title">Segurança Privada e Portaria</div>
+      <p class="setor-desc">12 anos de vivência no setor como gestor. Dashboards de postos, absenteísmo, horas extras, contratos e gestão operacional por supervisor.</p>
+      <div class="setor-tags"><span class="stag">Operacional</span><span class="stag">Absenteísmo</span><span class="stag">Postos</span><span class="stag">Facilities</span></div>
+    </div>
+    <div class="setor-card fade-up">
+      <div class="setor-icon">🏢</div>
+      <div class="setor-title">Empresas de Serviços</div>
+      <p class="setor-desc">Limpeza, terceirização, facilities e gestão predial. Indicadores de produtividade, custos por contrato e performance comercial.</p>
+      <div class="setor-tags"><span class="stag">Facilities</span><span class="stag">Terceirização</span><span class="stag">Comercial</span></div>
+    </div>
+    <div class="setor-card fade-up">
+      <div class="setor-icon">📋</div>
+      <div class="setor-title">Qualquer empresa com dados</div>
+      <p class="setor-desc">Empresas com dados espalhados em ERPs, planilhas, CRMs e APIs que precisam de uma visão unificada. Se tem dado, tem dashboard.</p>
+      <div class="setor-tags"><span class="stag">ERP</span><span class="stag">CRM</span><span class="stag">SQL</span><span class="stag">APIs</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section id="processo">
+  <div class="fade-up sec-center">
+    <span class="sec-label">Como trabalho</span>
+    <h2 class="sec-title">Do primeiro contato ao <span>dashboard em produção</span></h2>
+    <p class="sec-sub center">Processo transparente. Você sabe exatamente o que acontece em cada etapa.</p>
+  </div>
+  <div class="proc-grid">
+    <div class="proc-step fade-up">
+      <div class="proc-num">1</div>
+      <div class="proc-title">Diagnóstico gratuito</div>
+      <p class="proc-desc">20 minutos para entender sua operação, sistemas e dores com dados. Sem compromisso.</p>
+    </div>
+    <div class="proc-step fade-up">
+      <div class="proc-num">2</div>
+      <div class="proc-title">Proposta personalizada</div>
+      <p class="proc-desc">Em até 24h você recebe escopo, prazo e investimento baseados no seu caso específico.</p>
+    </div>
+    <div class="proc-step fade-up">
+      <div class="proc-num">3</div>
+      <div class="proc-title">ETL e modelagem</div>
+      <p class="proc-desc">Conecto ao banco de dados, estruturo o DW e modelo as tabelas para alimentar os painéis.</p>
+    </div>
+    <div class="proc-step fade-up">
+      <div class="proc-num">4</div>
+      <div class="proc-title">Dashboards entregues</div>
+      <p class="proc-desc">Apresento, treino sua equipe e entrego a documentação completa. Dados em tempo real no mesmo dia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="fade-up sec-center">
+    <span class="sec-label">Portfólio</span>
+    <h2 class="sec-title">Cases <span>reais entregues</span></h2>
+    <p class="sec-sub center">Resultados concretos de projetos que transformaram a gestão das empresas.</p>
+  </div>
+  <div class="port-grid">
+    <div class="port-card fade-up">
+      <div class="port-img">🔒</div>
+      <div class="port-body">
+        <span class="port-badge seg">Segurança Privada</span>
+        <div class="port-title">BI Completo · Empresa de Segurança</div>
+        <p class="port-desc">4 dashboards para empresa com 4 filiais: faturamento, despesas, operacional e comercial. Dados atualizados automaticamente, gestão em tempo real.</p>
+        <div class="port-metrics">
+          <div class="port-metric"><div class="port-metric-val">R$22,7M</div><div class="port-metric-label">Faturamento visível</div></div>
+          <div class="port-metric"><div class="port-metric-val">52,24%</div><div class="port-metric-label">Margem de lucro</div></div>
+          <div class="port-metric"><div class="port-metric-val">4</div><div class="port-metric-label">Dashboards</div></div>
+          <div class="port-metric"><div class="port-metric-val">3 sem.</div><div class="port-metric-label">Prazo entrega</div></div>
+        </div>
+        <a href="https://ramonjcnunes-sys.github.io/servicos/portfolio-seguranca.html" class="port-link" target="_blank">Ver case completo →</a>
+      </div>
+    </div>
+    <div class="port-card fade-up">
+      <div class="port-img">🏗️</div>
+      <div class="port-body">
+        <span class="port-badge const">Construtoras</span>
+        <div class="port-title">Dashboard Mega ERP · Incorporadora</div>
+        <p class="port-desc">Integração direta com Mega ERP e Anapro. Dashboards de contratos, inadimplência por empreendimento e receita projetada para a diretoria.</p>
+        <div class="port-metrics">
+          <div class="port-metric"><div class="port-metric-val">100%</div><div class="port-metric-label">Automático</div></div>
+          <div class="port-metric"><div class="port-metric-val">0</div><div class="port-metric-label">Relatórios manuais</div></div>
+          <div class="port-metric"><div class="port-metric-val">Mega</div><div class="port-metric-label">ERP integrado</div></div>
+          <div class="port-metric"><div class="port-metric-val">2 sem.</div><div class="port-metric-label">Prazo entrega</div></div>
+        </div>
+        <a href="https://wa.me/5511942488630?text=Quero%20saber%20mais%20sobre%20o%20case%20de%20construtoras!" class="port-link" target="_blank">Saiba mais →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="fade-up sec-center">
+    <span class="sec-label">Por que eu</span>
+    <h2 class="sec-title">O que me diferencia de <span>outros profissionais de BI</span></h2>
+  </div>
+  <div class="diff-grid">
+    <div class="diff-card fade-up">
+      <div class="diff-icon">🎯</div>
+      <div class="diff-title">Foco no negócio, não na tecnologia</div>
+      <p class="diff-desc">A pergunta sempre é: qual decisão esse dado vai apoiar? Crio dashboards que gestores usam de verdade — não painéis bonitos que ninguém entende.</p>
+    </div>
+    <div class="diff-card fade-up">
+      <div class="diff-icon">🏗️</div>
+      <div class="diff-title">Vivência no operacional</div>
+      <p class="diff-desc">12 anos como supervisor, coordenador e gerente. Sei o que um gestor precisa enxergar para tomar decisão — porque fui esse gestor.</p>
+    </div>
+    <div class="diff-card fade-up">
+      <div class="diff-icon">⚡</div>
+      <div class="diff-title">Stack completa de dados</div>
+      <p class="diff-desc">Do banco de dados ao dashboard: SQL, ETL, DW, Power BI e automação. Não preciso de terceiros — entrego a solução completa.</p>
+    </div>
+    <div class="diff-card fade-up">
+      <div class="diff-icon">🌎</div>
+      <div class="diff-title">100% remoto · Todo o Brasil</div>
+      <p class="diff-desc">Atendo empresas de Norte a Sul sem custo de deslocamento. Acesso ao banco de dados é tudo que preciso para entregar o projeto.</p>
+    </div>
+    <div class="diff-card fade-up">
+      <div class="diff-icon">📋</div>
+      <div class="diff-title">Entrega documentada</div>
+      <p class="diff-desc">Tudo documentado ao final do projeto. Sua equipe tem autonomia para entender e usar o BI mesmo depois que minha atuação terminar.</p>
+    </div>
+    <div class="diff-card fade-up">
+      <div class="diff-icon">🔄</div>
+      <div class="diff-title">Prazo real de 2 a 4 semanas</div>
+      <p class="diff-desc">Implantação completa — do primeiro acesso ao banco até os dashboards em produção — em 2 a 4 semanas. Sem enrolação.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contato">
+  <div class="fade-up">
+    <span class="cta-label">Vamos trabalhar juntos</span>
+    <h2 class="cta-title">Seus dados já existem.<br/><span>Falta transformá-los em decisão.</span></h2>
+    <p class="cta-sub">Diagnóstico gratuito de 20 minutos. Mostro o que seria possível construir no seu caso específico — sem compromisso, sem custo.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/5511942488630?text=Olá%20Ramon,%20vi%20seu%20site%20e%20quero%20um%20diagnóstico%20gratuito!" class="btn-wa" target="_blank">💬 WhatsApp</a>
+      <a href="mailto:ramonjcnunes@gmail.com?subject=Quero%20um%20diagnóstico%20de%20BI" class="btn-email">✉️ E-mail</a>
+      <a href="https://www.linkedin.com/in/ramon-nunes/" class="btn-ln" target="_blank">🔗 LinkedIn</a>
+    </div>
+    <p class="cta-note">📍 100% remoto · Todo o Brasil · Resposta em até 24h</p>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Ramon Nunes · Analista de Business Intelligence · <a href="mailto:ramonjcnunes@gmail.com">ramonjcnunes@gmail.com</a></span>
+  <span>
+    <a href="https://www.linkedin.com/in/ramon-nunes/" target="_blank">LinkedIn</a> ·
+    <a href="https://ramonjcnunes-sys.github.io/comercial/landing-page.html" target="_blank">Serviços BI</a> ·
+    <a href="https://ramonjcnunes-sys.github.io/servicos/portfolio-seguranca.html" target="_blank">Portfólio</a>
+  </span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} });
+  },{threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll',()=>{
+    let cur='';
+    sections.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id;});
+    document.querySelectorAll('.nav-links a').forEach(a=>{
+      a.style.color=a.getAttribute('href')==='#'+cur?'var(--navy)':'var(--gray)';
+    });
+  });
+</script>
+</body>
+</html>
